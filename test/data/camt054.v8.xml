@@ -127,6 +127,17 @@
               <Dbtr>
                 <Pty>
                   <Nm>UNIFITS GmbH</Nm>
+                  <Id>
+                    <OrgId>
+                      <Othr>
+                        <Id>OID1</Id>
+                        <SchmeNm>
+                          <Cd>OSC1</Cd>
+                        </SchmeNm>
+                        <Issr>OISSR1</Issr>
+                      </Othr>
+                    </OrgId>
+                  </Id>
                 </Pty>
               </Dbtr>
               <DbtrAcct>
@@ -144,6 +155,17 @@
                     <TwnNm>Example Town 3 - V1</TwnNm>
                     <Ctry>CH</Ctry>
                   </PstlAdr>
+                  <Id>
+                    <PrvtId>
+                      <Othr>
+                        <Id>PID1</Id>
+                        <SchmeNm>
+                            <Prtry>PSC1</Prtry>
+                        </SchmeNm>
+                        <Issr>PISSR1</Issr>
+                      </Othr>
+                    </PrvtId>
+                  </Id>
                 </Pty>
               </Cdtr>
               <CdtrAcct>

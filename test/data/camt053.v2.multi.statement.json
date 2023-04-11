@@ -153,6 +153,26 @@
                                 "getSubDepartment": null,
                                 "getTownName": null
                             },
+                            "getIdentification": {
+                                "__CLASS__": "Genkgo\\Camt\\DTO\\OrganisationIdentification",
+                                "getBankPartyId": null,
+                                "getBei": null,
+                                "getBic": null,
+                                "getChipsUniversalId": null,
+                                "getDuns": null,
+                                "getEangln": null,
+                                "getIbei": null,
+                                "getIdentification": "OID1",
+                                "getIssuer": null,
+                                "getOtherId": "OID1",
+                                "getOtherIssuer": "OISSR1",
+                                "getOtherSchemeName": "OSC1",
+                                "getOtherType": null,
+                                "getTaxId": null
+                            },
+                            "getIdentifications": [
+                                "__RECURSIVITY__"
+                            ],
                             "getName": "Company Name 2"
                         }
                     }
@@ -224,6 +244,9 @@
                 "getOtherType": null,
                 "getTaxId": null
             },
+            "getIdentifications": [
+                "__RECURSIVITY__"
+            ],
             "getName": "COMPANY BVBA"
         },
         "getPagination": null

@@ -191,6 +191,26 @@
                         "getRelatedPartyType": {
                             "__CLASS__": "Genkgo\\Camt\\DTO\\Creditor",
                             "getAddress": null,
+                            "getIdentification": {
+                                "__CLASS__": "Genkgo\\Camt\\DTO\\OrganisationIdentification",
+                                "getBankPartyId": null,
+                                "getBei": null,
+                                "getBic": null,
+                                "getChipsUniversalId": null,
+                                "getDuns": null,
+                                "getEangln": null,
+                                "getIbei": null,
+                                "getIdentification": "OID1",
+                                "getIssuer": null,
+                                "getOtherId": "OID1",
+                                "getOtherIssuer": "OISSR1",
+                                "getOtherSchemeName": "OSC1",
+                                "getOtherType": null,
+                                "getTaxId": null
+                            },
+                            "getIdentifications": [
+                                "__RECURSIVITY__"
+                            ],
                             "getName": "UNIFITS GmbH"
                         }
                     },
@@ -218,6 +238,16 @@
                                 "getSubDepartment": null,
                                 "getTownName": "Example Creditor Town 4 - V1"
                             },
+                            "getIdentification": {
+                                "__CLASS__": "Genkgo\\Camt\\DTO\\PrivateIdentification",
+                                "getIdentification": "PID1",
+                                "getOtherId": "PID1",
+                                "getOtherIssuer": "PISSR1",
+                                "getOtherSchemeName": "PSC1"
+                            },
+                            "getIdentifications": [
+                                "__RECURSIVITY__"
+                            ],
                             "getName": "Example Creditor 4 - V1"
                         }
                     }
@@ -289,6 +319,9 @@
                 "getOtherType": null,
                 "getTaxId": null
             },
+            "getIdentifications": [
+                "__RECURSIVITY__"
+            ],
             "getName": "COMPANY BVBA"
         },
         "getPagination": {

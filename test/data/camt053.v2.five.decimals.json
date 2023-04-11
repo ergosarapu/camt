@@ -153,6 +153,8 @@
                                 "getSubDepartment": null,
                                 "getTownName": null
                             },
+                            "getIdentification": null,
+                            "getIdentifications": [],
                             "getName": "Company Name"
                         }
                     }
@@ -224,6 +226,9 @@
                 "getOtherType": null,
                 "getTaxId": null
             },
+            "getIdentifications": [
+                "__RECURSIVITY__"
+            ],
             "getName": "COMPANY BVBA"
         },
         "getPagination": null

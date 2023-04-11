@@ -152,6 +152,17 @@
                   <TwnNm>Example Creditor Town 4 - V1</TwnNm>
                   <Ctry>CH</Ctry>
                 </PstlAdr>
+                <Id>
+                  <PrvtId>
+                    <Othr>
+                      <Id>PID1</Id>
+                      <SchmeNm>
+                          <Cd>PSC1</Cd>
+                      </SchmeNm>
+                      <Issr>PISSR1</Issr>
+                    </Othr>
+                  </PrvtId>
+                </Id>
               </Dbtr>
               <DbtrAcct>
                 <Id>
@@ -160,6 +171,17 @@
               </DbtrAcct>
               <Cdtr>
                 <Nm>UNIFITS GmbH</Nm>
+                <Id>
+                  <OrgId>
+                    <Othr>
+                      <Id>OID1</Id>
+                      <SchmeNm>
+                        <Prtry>OSC1</Prtry>
+                      </SchmeNm>
+                      <Issr>OISSR1</Issr>
+                    </Othr>
+                  </OrgId>
+                </Id>
               </Cdtr>
               <CdtrAcct>
                 <Id>

@@ -12,6 +12,7 @@ use Genkgo\Camt\Camt054\MessageFormat;
 use Genkgo\Camt\DTO;
 use Genkgo\Camt\DTO\Message;
 use Genkgo\Camt\DTO\OrganisationIdentification;
+use Genkgo\Camt\DTO\PrivateIdentification;
 use PHPUnit\Framework;
 
 class EndToEndTest extends Framework\TestCase
@@ -370,6 +371,47 @@ class EndToEndTest extends Framework\TestCase
                                 break;
                             default:
                                 break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public function testRelatedPartiesIdentification(): void
+    {
+        $messages = [
+            $this->getV2Message(),
+            $this->getV4Message(),
+            $this->getV8Message(),
+        ];
+
+        foreach ($messages as $message) {
+            $notifications = $message->getRecords();
+
+            self::assertCount(1, $notifications);
+            foreach ($notifications as $notification) {
+                $entries = $notification->getEntries();
+
+                self::assertCount(1, $entries);
+                foreach ($entries as $entry) {
+                    $transactionDetails = $entry->getTransactionDetails();
+
+                    self::assertCount(3, $transactionDetails);
+                    foreach ($transactionDetails as $transactionDetail) {
+                        $parties = $transactionDetail->getRelatedParties();
+
+                        foreach ($parties as $party) {
+                            $identification = $party->getRelatedPartyType()->getIdentification();
+                            if ($identification instanceof OrganisationIdentification) {
+                                self::assertEquals('OID1', $identification->getOtherId());
+                                self::assertEquals('OISSR1', $identification->getOtherIssuer());
+                                self::assertEquals('OSC1', $identification->getOtherSchemeName());
+                            } elseif ($identification instanceof PrivateIdentification) {
+                                self::assertEquals('PID1', $identification->getOtherId());
+                                self::assertEquals('PISSR1', $identification->getOtherIssuer());
+                                self::assertEquals('PSC1', $identification->getOtherSchemeName());
+                            }
                         }
                     }
                 }

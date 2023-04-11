@@ -11,6 +11,7 @@ use Genkgo\Camt\Camt053\MessageFormat;
 use Genkgo\Camt\DTO;
 use Genkgo\Camt\DTO\Message;
 use Genkgo\Camt\DTO\OrganisationIdentification;
+use Genkgo\Camt\DTO\PrivateIdentification;
 use Genkgo\Camt\DTO\RecordWithBalances;
 use Genkgo\Camt\Exception\InvalidMessageException;
 use PHPUnit\Framework;
@@ -246,6 +247,12 @@ class EndToEndTest extends Framework\TestCase
                                     self::assertEquals([], $party->getRelatedPartyType()->getAddress()->getAddressLines());
                                     self::assertEquals('NL56AGDH9619008421', (string) $party->getAccount()->getIdentification());
                                 }
+                                /** @var OrganisationIdentification $identification */
+                                $identification = $party->getRelatedPartyType()->getIdentification();
+                                self::assertInstanceOf(OrganisationIdentification::class, $identification);
+                                self::assertEquals('OID1', $identification->getOtherId());
+                                self::assertEquals('OISSR1', $identification->getOtherIssuer());
+                                self::assertEquals('OSC1', $identification->getOtherSchemeName());
                             } elseif ($party->getRelatedPartyType() instanceof DTO\Debtor) {
                                 if ($party->getRelatedPartyType() instanceof DTO\UltimateDebtor) {
                                     self::assertEquals('DEBTOR NAME NM', $party->getRelatedPartyType()->getName());
@@ -256,6 +263,12 @@ class EndToEndTest extends Framework\TestCase
                                     self::assertEquals(['ADDR ADDR 10', '2000 ANTWERPEN'], $party->getRelatedPartyType()->getAddress()->getAddressLines());
                                     self::assertEquals('NL56AGDH9619008421', (string) $party->getAccount()->getIdentification());
                                 }
+                                /** @var PrivateIdentification $identification */
+                                $identification = $party->getRelatedPartyType()->getIdentification();
+                                self::assertInstanceOf(PrivateIdentification::class, $identification);
+                                self::assertEquals('PID1', $identification->getOtherId());
+                                self::assertEquals('PISSR1', $identification->getOtherIssuer());
+                                self::assertEquals('PSC1', $identification->getOtherSchemeName());
                             }
                         }
 

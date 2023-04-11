@@ -16,4 +16,13 @@ interface RelatedPartyTypeInterface
     public function getAddress(): ?Address;
 
     public function getName(): ?string;
+
+    public function addIdentification(Identification $identification): void;
+
+    /**
+     * @return Identification[]
+     */
+    public function getIdentifications(): array;
+
+    public function getIdentification(): ?Identification;
 }

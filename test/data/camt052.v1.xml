@@ -85,6 +85,38 @@
                     <PmtInfId>FINP-0055-001</PmtInfId>
                     <NbOfTxs>20</NbOfTxs>
                 </Btch>
+                <TxDtls>
+                    <RltdPties>
+                        <Dbtr>
+                            <Id>
+                                <PrvtId>
+                                    <OthrId>
+                                        <Id>PID1</Id>
+                                        <IdTp>PSC1</IdTp>
+                                    </OthrId>
+                                    <Issr>PISSR1</Issr>
+                                </PrvtId>
+                                <PrvtId>
+                                    <OthrId>
+                                        <Id>PID2</Id>
+                                        <IdTp>PSC2</IdTp>
+                                    </OthrId>
+                                    <Issr>PISSR2</Issr>
+                                </PrvtId>
+                            </Id>
+                        </Dbtr>
+                        <Cdtr>
+                            <Id>
+                                <OrgId>
+                                    <PrtryId>
+                                        <Id>OID1</Id>
+                                        <Issr>OISSR1</Issr>
+                                    </PrtryId>
+                                </OrgId>
+                            </Id>
+                        </Cdtr>
+                    </RltdPties>
+                </TxDtls>
                 <AddtlNtryInf>Credit</AddtlNtryInf>
             </Ntry>
             <AddtlRptInf>Additional Information</AddtlRptInf>

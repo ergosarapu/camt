@@ -18,7 +18,7 @@ class Entry
 
     public function addTransactionDetails(DTO\Entry $entry, SimpleXMLElement $xmlEntry): void
     {
-        $xmlDetails = $xmlEntry->NtryDtls->TxDtls;
+        $xmlDetails = $xmlEntry->NtryDtls->TxDtls ?? $xmlEntry->TxDtls;
 
         if ($xmlDetails !== null) {
             foreach ($xmlDetails as $xmlDetail) {

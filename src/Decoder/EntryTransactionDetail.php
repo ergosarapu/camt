@@ -111,6 +111,17 @@ abstract class EntryTransactionDetail
             $relatedPartyType->setAddress(DTOFactory\Address::createFromXml($xmlPartyDetail->PstlAdr));
         }
 
+        if (isset($xmlPartyDetail->Id)) {
+            if (isset($xmlPartyDetail->Id->OrgId)) {
+                $relatedPartyType->addIdentification(DTOFactory\OrganisationIdentification::createFromXml($xmlPartyDetail->Id->OrgId));
+            }
+            if (isset($xmlPartyDetail->Id->PrvtId)) {
+                foreach ($xmlPartyDetail->Id->PrvtId as $prvtId) {
+                    $relatedPartyType->addIdentification(DTOFactory\PrivateIdentification::createFromXml($prvtId));
+                }
+            }
+        }
+
         $relatedParty = new RelatedParty($relatedPartyType, $this->getRelatedPartyAccount($xmlRelatedPartyTypeAccount));
 
         $detail->addRelatedParty($relatedParty);

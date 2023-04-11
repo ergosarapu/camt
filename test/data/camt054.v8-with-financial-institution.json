@@ -84,6 +84,8 @@
                                 "getSubDepartment": null,
                                 "getTownName": "Example Town 3 - V1"
                             },
+                            "getIdentification": null,
+                            "getIdentifications": [],
                             "getName": "Example Creditor 3 - V1"
                         }
                     }

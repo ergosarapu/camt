@@ -66,8 +66,85 @@
             "getReference": null,
             "getReversalIndicator": false,
             "getStatus": "BOOK",
-            "getTransactionDetail": null,
-            "getTransactionDetails": [],
+            "getTransactionDetail": {
+                "__CLASS__": "Genkgo\\Camt\\DTO\\EntryTransactionDetail",
+                "getAdditionalTransactionInformation": null,
+                "getAmount": null,
+                "getAmountDetails": null,
+                "getBankTransactionCode": {
+                    "__CLASS__": "Genkgo\\Camt\\DTO\\BankTransactionCode",
+                    "getDomain": null,
+                    "getProprietary": null
+                },
+                "getCharges": null,
+                "getReference": null,
+                "getRelatedAgent": null,
+                "getRelatedAgents": [],
+                "getRelatedDates": null,
+                "getRelatedParties": [
+                    {
+                        "__CLASS__": "Genkgo\\Camt\\DTO\\RelatedParty",
+                        "getAccount": null,
+                        "getRelatedPartyType": {
+                            "__CLASS__": "Genkgo\\Camt\\DTO\\Creditor",
+                            "getAddress": null,
+                            "getIdentification": {
+                                "__CLASS__": "Genkgo\\Camt\\DTO\\OrganisationIdentification",
+                                "getBankPartyId": null,
+                                "getBei": null,
+                                "getBic": null,
+                                "getChipsUniversalId": null,
+                                "getDuns": null,
+                                "getEangln": null,
+                                "getIbei": null,
+                                "getIdentification": "OID1",
+                                "getIssuer": null,
+                                "getOtherId": "OID1",
+                                "getOtherIssuer": "OISSR1",
+                                "getOtherSchemeName": null,
+                                "getOtherType": null,
+                                "getTaxId": null
+                            },
+                            "getIdentifications": [
+                                "__RECURSIVITY__"
+                            ],
+                            "getName": null
+                        }
+                    },
+                    {
+                        "__CLASS__": "Genkgo\\Camt\\DTO\\RelatedParty",
+                        "getAccount": null,
+                        "getRelatedPartyType": {
+                            "__CLASS__": "Genkgo\\Camt\\DTO\\Debtor",
+                            "getAddress": null,
+                            "getIdentification": {
+                                "__CLASS__": "Genkgo\\Camt\\DTO\\PrivateIdentification",
+                                "getIdentification": "PID1",
+                                "getOtherId": "PID1",
+                                "getOtherIssuer": "PISSR1",
+                                "getOtherSchemeName": "PSC1"
+                            },
+                            "getIdentifications": [
+                                "__RECURSIVITY__",
+                                {
+                                    "__CLASS__": "Genkgo\\Camt\\DTO\\PrivateIdentification",
+                                    "getIdentification": "PID2",
+                                    "getOtherId": "PID2",
+                                    "getOtherIssuer": "PISSR2",
+                                    "getOtherSchemeName": "PSC2"
+                                }
+                            ],
+                            "getName": null
+                        }
+                    }
+                ],
+                "getRelatedParty": "__RECURSIVITY__",
+                "getRemittanceInformation": null,
+                "getReturnInformation": null
+            },
+            "getTransactionDetails": [
+                "__RECURSIVITY__"
+            ],
             "getValueDate": {
                 "__CLASS__": "DateTimeImmutable",
                 "0": "2007-10-18T00:00:00+00:00"
@@ -115,6 +192,9 @@
                 "getOtherType": null,
                 "getTaxId": null
             },
+            "getIdentifications": [
+                "__RECURSIVITY__"
+            ],
             "getName": "COMPANY BVBA"
         },
         "getPagination": {

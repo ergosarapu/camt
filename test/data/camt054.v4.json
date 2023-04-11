@@ -175,6 +175,16 @@
                                 "getSubDepartment": null,
                                 "getTownName": "Example Town 3 - V1"
                             },
+                            "getIdentification": {
+                                "__CLASS__": "Genkgo\\Camt\\DTO\\PrivateIdentification",
+                                "getIdentification": "PID1",
+                                "getOtherId": "PID1",
+                                "getOtherIssuer": "PISSR1",
+                                "getOtherSchemeName": "PSC1"
+                            },
+                            "getIdentifications": [
+                                "__RECURSIVITY__"
+                            ],
                             "getName": "Example Creditor 3 - V1"
                         }
                     },
@@ -191,6 +201,26 @@
                         "getRelatedPartyType": {
                             "__CLASS__": "Genkgo\\Camt\\DTO\\Debtor",
                             "getAddress": null,
+                            "getIdentification": {
+                                "__CLASS__": "Genkgo\\Camt\\DTO\\OrganisationIdentification",
+                                "getBankPartyId": null,
+                                "getBei": null,
+                                "getBic": "ABCDEF2NAAA",
+                                "getChipsUniversalId": null,
+                                "getDuns": null,
+                                "getEangln": null,
+                                "getIbei": null,
+                                "getIdentification": "OID1",
+                                "getIssuer": null,
+                                "getOtherId": "OID1",
+                                "getOtherIssuer": "OISSR1",
+                                "getOtherSchemeName": "OSC1",
+                                "getOtherType": null,
+                                "getTaxId": null
+                            },
+                            "getIdentifications": [
+                                "__RECURSIVITY__"
+                            ],
                             "getName": "UNIFITS GmbH"
                         }
                     }
@@ -325,6 +355,8 @@
                                     "getSubDepartment": null,
                                     "getTownName": "Example Town 3 - V2"
                                 },
+                                "getIdentification": null,
+                                "getIdentifications": [],
                                 "getName": "Example Creditor 3 - V2"
                             }
                         },
@@ -341,6 +373,8 @@
                             "getRelatedPartyType": {
                                 "__CLASS__": "Genkgo\\Camt\\DTO\\Debtor",
                                 "getAddress": null,
+                                "getIdentification": null,
+                                "getIdentifications": [],
                                 "getName": "UNIFITS GmbH"
                             }
                         }
@@ -468,6 +502,8 @@
                                     "getSubDepartment": null,
                                     "getTownName": "Example Town 3 - V3"
                                 },
+                                "getIdentification": null,
+                                "getIdentifications": [],
                                 "getName": "Example Creditor 3 - V3"
                             }
                         },
@@ -484,6 +520,8 @@
                             "getRelatedPartyType": {
                                 "__CLASS__": "Genkgo\\Camt\\DTO\\Debtor",
                                 "getAddress": null,
+                                "getIdentification": null,
+                                "getIdentifications": [],
                                 "getName": "UNIFITS GmbH"
                             }
                         }
@@ -578,6 +616,9 @@
                 "getOtherType": null,
                 "getTaxId": null
             },
+            "getIdentifications": [
+                "__RECURSIVITY__"
+            ],
             "getName": "COMPANY BVBA"
         },
         "getOriginalBusinessQuery": {

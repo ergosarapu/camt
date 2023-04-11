@@ -12,7 +12,10 @@ class Recipient implements RelatedPartyTypeInterface
 
     private ?ContactDetails $contactDetails = null;
 
-    private ?Identification $identification = null;
+    /**
+     * @var Identification[]
+     */
+    private array $identifications = [];
 
     public function __construct(private ?string $name = null)
     {
@@ -60,11 +63,29 @@ class Recipient implements RelatedPartyTypeInterface
 
     public function getIdentification(): ?Identification
     {
-        return $this->identification;
+        if (isset($this->identifications[0])) {
+            return $this->identifications[0];
+        }
+
+        return null;
     }
 
     public function setIdentification(Identification $identification): void
     {
-        $this->identification = $identification;
+        $this->identifications = [];
+        $this->addIdentification($identification);
+    }
+
+    public function addIdentification(Identification $identification): void
+    {
+        $this->identifications[] = $identification;
+    }
+
+    /**
+     * @return Identification[]
+     */
+    public function getIdentifications(): array
+    {
+        return $this->identifications;
     }
 }

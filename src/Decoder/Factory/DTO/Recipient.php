@@ -27,7 +27,11 @@ class Recipient
         }
         if (isset($xmlRecipient->Id)) {
             if (isset($xmlRecipient->Id->OrgId)) {
-                $recipient->setIdentification(OrganisationIdentification::createFromXml($xmlRecipient->Id->OrgId));
+                $recipient->addIdentification(OrganisationIdentification::createFromXml($xmlRecipient->Id->OrgId));
+            }
+
+            if (isset($xmlRecipient->Id->PrvtId)) {
+                $recipient->addIdentification(PrivateIdentification::createFromXml($xmlRecipient->Id->PrvtId));
             }
         }
 

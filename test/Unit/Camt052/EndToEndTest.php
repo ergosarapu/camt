@@ -12,6 +12,7 @@ use Genkgo\Camt\DTO;
 use Genkgo\Camt\DTO\Entry;
 use Genkgo\Camt\DTO\Message;
 use Genkgo\Camt\DTO\OrganisationIdentification;
+use Genkgo\Camt\DTO\PrivateIdentification;
 use PHPUnit\Framework;
 
 class EndToEndTest extends Framework\TestCase
@@ -249,6 +250,55 @@ class EndToEndTest extends Framework\TestCase
                                 self::assertEquals('NL', $party->getRelatedPartyType()->getAddress()->getCountry());
                                 self::assertEquals(['ADDR ADDR 10', '2000 ANTWERPEN'], $party->getRelatedPartyType()->getAddress()->getAddressLines());
                                 self::assertEquals('NL56AGDH9619008421', (string) $party->getAccount()->getIdentification());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public function testRelatedPartiesIdentification(): void
+    {
+        $messages = [
+            $this->getV1Message(),
+            $this->getV2Message(),
+            $this->getV4Message(),
+            $this->getV6Message(),
+        ];
+
+        foreach ($messages as $message) {
+            $reports = $message->getRecords();
+
+            self::assertCount(1, $reports);
+            foreach ($reports as $report) {
+                $entries = $report->getEntries();
+                self::assertCount(1, $entries);
+
+                foreach ($entries as $entry) {
+                    $details = $entry->getTransactionDetails();
+                    self::assertCount(1, $details);
+
+                    foreach ($details as $detail) {
+                        $parties = $detail->getRelatedParties();
+                        self::assertCount(2, $parties);
+
+                        foreach ($parties as $party) {
+                            if ($party->getRelatedPartyType() instanceof DTO\Creditor) {
+                                /** @var OrganisationIdentification $identification */
+                                $identification = $party->getRelatedPartyType()->getIdentification();
+                                self::assertInstanceOf(OrganisationIdentification::class, $identification);
+                                self::assertEquals('OID1', $identification->getOtherId());
+                                self::assertEquals('OISSR1', $identification->getOtherIssuer());
+                            } elseif ($party->getRelatedPartyType() instanceof DTO\Debtor) {
+                                $identifications = $party->getRelatedPartyType()->getIdentifications();
+                                /** @var PrivateIdentification $identification */
+                                foreach ($identifications as $index => $identification) {
+                                    self::assertInstanceOf(PrivateIdentification::class, $identification);
+                                    self::assertEquals('PID' . ($index + 1), $identification->getOtherId());
+                                    self::assertEquals('PSC' . ($index + 1), $identification->getOtherSchemeName());
+                                    self::assertEquals('PISSR' . ($index + 1), $identification->getOtherIssuer());
+                                }
                             }
                         }
                     }

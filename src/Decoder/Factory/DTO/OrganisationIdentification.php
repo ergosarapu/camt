@@ -55,9 +55,8 @@ class OrganisationIdentification
                 );
             }
             if (isset($other->SchmeNm)) {
-                $organisationIdentification->setOtherSchemeName(
-                    (string) $other->SchmeNm
-                );
+                $schemeName = $other->SchmeNm->Cd ?? $other->SchmeNm->Prtry;
+                $organisationIdentification->setOtherSchemeName((string) $schemeName);
             }
         }
 
