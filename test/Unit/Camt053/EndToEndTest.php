@@ -50,6 +50,14 @@ class EndToEndTest extends Framework\TestCase
         return (new MessageFormat\V04())->getDecoder()->decode($dom);
     }
 
+    protected function getV8Message(): Message
+    {
+        $dom = new DOMDocument('1.0', 'UTF-8');
+        $dom->load('test/data/camt053.v8.xml');
+
+        return (new MessageFormat\V08())->getDecoder()->decode($dom);
+    }
+
     public function testWrongDocument(): Message
     {
         $this->expectException(InvalidMessageException::class);
@@ -81,12 +89,20 @@ class EndToEndTest extends Framework\TestCase
         self::assertInstanceOf(Message::class, (new MessageFormat\V04())->getDecoder()->decode($dom));
     }
 
+    public function testV8Document(): void
+    {
+        $dom = new DOMDocument('1.0', 'UTF-8');
+        $dom->load('test/data/camt053.v8.xml');
+        self::assertInstanceOf(Message::class, (new MessageFormat\V08())->getDecoder()->decode($dom));
+    }
+
     public function testGroupHeader(): void
     {
         $messages = [
             $this->getV2Message(),
             $this->getV3Message(),
             $this->getV4Message(),
+            $this->getV8Message(),
             $this->getV2UltimateMessage(),
         ];
 
@@ -121,6 +137,7 @@ class EndToEndTest extends Framework\TestCase
             $this->getV2Message(),
             $this->getV3Message(),
             $this->getV4Message(),
+            $this->getV8Message(),
             $this->getV2UltimateMessage(),
         ];
 
@@ -155,6 +172,7 @@ class EndToEndTest extends Framework\TestCase
             $this->getV2Message(),
             $this->getV3Message(),
             $this->getV4Message(),
+            $this->getV8Message(),
             $this->getV2UltimateMessage(),
         ];
 
@@ -213,6 +231,7 @@ class EndToEndTest extends Framework\TestCase
             $this->getV2Message(),
             $this->getV3Message(),
             $this->getV4Message(),
+            $this->getV8Message(),
             $this->getV2UltimateMessage(),
         ];
 
@@ -291,6 +310,7 @@ class EndToEndTest extends Framework\TestCase
             $this->getV2Message(),
             $this->getV3Message(),
             $this->getV4Message(),
+            $this->getV8Message(),
             $this->getV2UltimateMessage(),
         ];
 
